@@ -26,15 +26,39 @@ class Customer(db.Model):
 class Manager(db.Model):
     __tablename__ = 'managers'
     organisation_id = db.Column(db.String(100),unique=True,primary_key=True,nullable=False)
+    organisation_name = db.Column(db.String(100),nullable=False)
+    organisation_order_limit = db.Column(db.Integer,nullable=False)
     password = db.Column(db.String(100),nullable=False)
 
-    def __init__(self,organisation_id,password):
+    def __init__(self,organisation_id,organisation_name,organisation_order_limit,password):
         self.organisation_id = organisation_id
+        self.organisation_name = organisation_name
+        self.organisation_order_limit = organisation_order_limit
         self.password = password
 
-#class Orders(db.Model):
-    #__tablename__ = 'orders'
-    #TODO
+class Order(db.Model):
+    __tablename__ = 'orders'
+    customer_id = db.Column(db.String(100),unique=True,primary_key=True,nullable=False)
+    order_source = db.Column(db.String(100),nullable=False)
+    order_amount = db.Column(db.Float, nullable=False)
+    order = db.Column(db.String(512),nullable=True)
+
+class Item(db.Model):
+    __tablename__ = 'items'
+    item_id = db.Column(db.String(100),unique=True,primary_key=True,nullable=False)
+    item_source = db.column(db.String(100),nullable=False)
+    item_name = db.Column(db.String(100),nullable=False)
+    item_type = db.Column(db.String(10),nullable=False)
+    item_image = db.Column(db.String(50),nullable=True)
+    item_price = db.column(db.Float, nullable=False)
+
+    def __init__(self,item_id,item_source,item_name,item_type,item_image,item_price):
+        self.item_id = item_id
+        self.item_source = item_source
+        self.item_name = item_name
+        self.item_type = item_type
+        self.item_image = item_image
+        self.item_price = item_price
 
 @app.route('/register/',methods=["GET","POST"])
 def register():
@@ -98,4 +122,4 @@ if __name__ == '__main__':
         db.create_all()
         print("=> Database created")
     app.run(debug=True)
-    print("=> Unmessed is running")
+    print("=> Eat Exact is running")
