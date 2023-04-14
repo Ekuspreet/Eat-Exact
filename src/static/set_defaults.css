@@ -15,9 +15,10 @@ html{
     --primaryFade : #fdccc3a1;
     --black : #242424;
     --white : #f1f1f1;
-    --downShadow : 0px 5px 100px rgba(119, 119, 119, 0.355);
+    --downShadow : 0 10px 40px -10px rgba(58, 38, 70, 0.694);
     --secondaryFont : 'Alef',sans-serif;
     --primaryFont : 'Prompt',sans-serif;
+    --alert : #e8644c;
 }
 button{
     border: none;

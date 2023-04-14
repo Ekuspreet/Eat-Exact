@@ -1,0 +1,18 @@
+
+<!DOCTYPE html>
+
+<html>
+
+<head>
+	<title>EatExact</title>
+	<link rel="stylesheet" href="{{ url_for('static',filename='style_manager_dashboard.css') }}" />
+	<link rel="stylesheet" href="{{ url_for('static',filename='set_defaults.css') }}" />
+</head>
+
+<body>
+    {% for request in requested_logins %}
+    {{ request }}
+    {% endfor %}
+</body>
+
+</html>

@@ -16,12 +16,14 @@ class Customer(db.Model):
     organisation_id = db.Column(db.String(100),nullable=False)
     room_number = db.Column(db.String(100),nullable=False)
     name = db.Column(db.String(100),nullable=False)
+    accepted = db.Column(db.Boolean,nullable=False)
 
-    def __init__(self,customer_id,organisation_id,room_number,name):
+    def __init__(self,customer_id,organisation_id,room_number,name,accepted):
         self.customer_id = customer_id
         self.organisation_id = organisation_id
         self.room_number = room_number
         self.name = name
+        self.accepted = accepted
 
 class Manager(db.Model):
     __tablename__ = 'managers'
@@ -46,11 +48,11 @@ class Order(db.Model):
 class Item(db.Model):
     __tablename__ = 'items'
     item_id = db.Column(db.String(100),unique=True,primary_key=True,nullable=False)
-    item_source = db.column(db.String(100),nullable=False)
+    item_source = db.Column(db.String(100),nullable=False)
     item_name = db.Column(db.String(100),nullable=False)
     item_type = db.Column(db.String(10),nullable=False)
     item_image = db.Column(db.String(50),nullable=True)
-    item_price = db.column(db.Float, nullable=False)
+    item_price = db.Column(db.Float, nullable=False)
 
     def __init__(self,item_id,item_source,item_name,item_type,item_image,item_price):
         self.item_id = item_id
@@ -65,16 +67,19 @@ def register():
     #register page
     if request.method == "POST":
         print("=> Posted registeration form")
-        organisation_id = request.form["hotel_id"]
+        organisation_id = request.form["organisation_id"]
+        organisation_name = request.form['organisation_name']
+        organisation_order_limit = request.form['organisation_order_limit']
         password = request.form["password"]
         confirm_password = request.form["confirm_password"]
         if password != confirm_password:
             return render_template('register.html')
-        mngr = Manager(organisation_id,password)
+        mngr = Manager(organisation_id,organisation_name,organisation_order_limit,password)
         db.session.add(mngr)
         db.session.commit()
         return redirect(url_for('login'))
     return render_template('register.html')
+
 
 @app.route('/login/',methods=["GET","POST"])
 def login():
@@ -84,12 +89,17 @@ def login():
         form = request.form["form_id"]
         if form == 'customer':
             name = request.form["customer_name"]
-            organisation_id = request.form["hotel_id"]
+            organisation_id = request.form["organisation_id"]
             room_number = request.form["room_number"]
             customer_id = organisation_id + room_number
             cstmr = Customer.query.filter_by(customer_id=customer_id).first()
             if not cstmr:
-                #TODO request permission from manager
+                cstmr = Customer(customer_id,organisation_id,room_number,name,False)
+                db.session.add(cstmr)
+                db.session.commit()
+                return render_template("login.html")
+            if cstmr.accepted == False:
+                print("NOT WELCOME")
                 return render_template("login.html")
             if cstmr.name != name:
                 return render_template("login.html")
@@ -97,7 +107,7 @@ def login():
             session['type'] = 'customer'
             return redirect(url_for('customer_dashboard'))
         elif form == "manager":
-            organisation_id = request.form["hotel_id"]
+            organisation_id = request.form["organisation_id"]
             password = request.form["password"]
             mngr = Manager.query.filter_by(organisation_id=organisation_id).first()
             if not mngr:

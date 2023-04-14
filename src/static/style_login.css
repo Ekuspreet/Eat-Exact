@@ -1,14 +1,17 @@
 
-
+body{
+    background-image: linear-gradient(rgb(40, 36, 49),rgb(42, 38, 45));
+}
 .container{
     display: flex;
     flex-direction: column;
-    gap: 1em;
+   
 }
 
 
 /*Setting Up The NavBar Of Landing Page*/
 .navbar{
+    z-index: 2;
     /* background-color: orange; */
     /* position: sticky; */
     height: 7.5em;
@@ -81,24 +84,28 @@
 /* NavBar Completes Here :)
 */
 .poster{
+    
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: -100px;
-    width: 100vw;
+    box-shadow: var(--downShadow);
+    
 
 }
 
 .poster img{
+    width: 40%;
+    min-width: 20em;
     height: 35vw;
-    min-height: 25em;
+    min-height: 20em;
     opacity: 0.8;
 }
 .poster .text{
+    width:50%;
     display: flex;
     flex-direction:column;
     align-items: center;
-    width: 800vw;
+    
 }
 .poster p{
     width: 70%;
@@ -108,11 +115,12 @@
 }
 .poster tagline{
     font-family: var(--primaryFont);
-    width: 50%;
-    font-size: 40pt;
+   
+    font-size: calc(4vw - 0.1vmax);
     font-weight: 800;
     line-height: -10px; 
     text-align: center;
+    color: var(--alert);
 }
 
 .poster button{
@@ -123,7 +131,7 @@
     transition: border 0.25s cubic-bezier(.66,.39,.21,.67);
     text-decoration: none;
 
-    background-color: var(--primaryColor);
+    background-color: var(--alert);
     color: var(--white);
     font-family: var(--primaryFont);
     font-size: 15pt;

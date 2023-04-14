@@ -19,7 +19,7 @@
 		</div>
 		<div class="nav-btn">
 			<button><a href="#">Login </a></button>
-			<button><a href="#">Sign Up </a></button>
+			<button><a href="{{ url_for('register') }}">Sign Up </a></button>
 			<button><a href="#">About Us </a></button>
 
 		</div>
@@ -32,12 +32,14 @@
 		<button>Join The Change</button>
 	    </div>
 	</section>
+
+	
 	<section class="login-forms">
 
 		<form action="#" method="post" id="customer_login">
 			<input type="hidden" name="form_id" value="customer">
-			<label for="hotel_id">Hotel ID :</label>	
-			<input type="text" id="input_hotel_id" name="hotel_id">
+			<label for="organisation_id">organisation ID :</label>	
+			<input type="text" id="input_organisation_id" name="organisation_id">
 			<label for="room_number">Room Number :</label>	
 			<input type="text" id="input_room_number" name="room_number">
 			<label for="customer_name">Customer Name :</label>	
@@ -47,8 +49,8 @@
 
 		<form action="#" method="post" id="manager_login">
 			<input type="hidden" name="form_id" value="manager">
-			<label for="hotel_id">Hotel ID :</label>	
-			<input type="text" id="input_hotel_id" name="hotel_id">
+			<label for="organisation_id">organisation ID :</label>	
+			<input type="text" id="input_organisation_id" name="organisation_id">
 			<label for="password">Password :</label>	
 			<input type="password" id="input_password" name="password">
 			<input type="submit" value="submit">
