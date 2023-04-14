@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+	<title>EatExact</title>
+	<link rel="stylesheet" href="{{ url_for('static',filename='style_register.css') }}" />
+	<link rel="stylesheet" href="{{ url_for('static',filename='set_defaults.css') }}" />
+</head>
+
+<body>
+    <form action="#" method="post" id="manager_registeration">
+        <label for="name">Hotel ID :</label>	
+        <input type="text" id="input_hotel_id" name="hotel_id">
+        <label for="password">Password :</label>	
+        <input type="password" id="input_password" name="password">
+        <label for="confirm_password">Confirm Password :</label>	
+        <input type="password" id="input_confirm_password" name="confirm_password">
+        <input type="submit" value="submit">
+    </form>
+</body>
+
+</html>

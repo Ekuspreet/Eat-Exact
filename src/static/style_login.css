@@ -1,0 +1,141 @@
+
+
+.container{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+
+/*Setting Up The NavBar Of Landing Page*/
+.navbar{
+    /* background-color: orange; */
+    /* position: sticky; */
+    height: 7.5em;
+    display: flex;
+    justify-content: space-between;
+    
+    align-items: center;
+    box-shadow: var(--downShadow);
+
+
+}
+
+.logo{
+    height:inherit;
+    display: flex;
+    align-items:center;
+    margin: 0px 1em;
+}
+.logo a{
+    text-decoration: none;
+}
+.logo img{
+    height: 7.5vw;
+    min-height:6em;
+
+}
+.logo header{
+    position: relative;
+    left: -.8em;
+    /* top: -0.2em; */
+    color: var(--primaryColor);
+    font-size:30pt;
+    font-family : 'prompt', sans-serif;
+    font-weight: 600;
+}
+
+.nav-btn{
+    margin: 0px 1em;
+    display: flex;
+    gap: 0.25vw;
+
+}
+.nav-btn button{
+    width: 7.5em;
+    height: 3em;
+    border-radius: 5px;
+    border: 1px solid white;
+    transition: border 0.25s cubic-bezier(.66,.39,.21,.67);
+}
+
+.nav-btn button:hover{
+    border: 1px solid var(--primaryColor);
+}
+.nav-btn button:active{
+    background-color:  var(--primaryFade);
+    
+}
+.nav-btn a{
+    text-decoration: none;
+    color: var(--black);
+    font-family: var(--secondaryFont);
+    font-size: 14pt;
+    font-weight: bold;
+}
+
+
+
+
+
+/* NavBar Completes Here :)
+*/
+.poster{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: -100px;
+    width: 100vw;
+
+}
+
+.poster img{
+    height: 35vw;
+    min-height: 25em;
+    opacity: 0.8;
+}
+.poster .text{
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+    width: 800vw;
+}
+.poster p{
+    width: 70%;
+    margin: 1.5em;
+    text-align: center;
+    text-justify: distribute;
+}
+.poster tagline{
+    font-family: var(--primaryFont);
+    width: 50%;
+    font-size: 40pt;
+    font-weight: 800;
+    line-height: -10px; 
+    text-align: center;
+}
+
+.poster button{
+    width: 20em;
+    height: 2em;
+    border-radius: 5px;
+    border: 1px solid white;
+    transition: border 0.25s cubic-bezier(.66,.39,.21,.67);
+    text-decoration: none;
+
+    background-color: var(--primaryColor);
+    color: var(--white);
+    font-family: var(--primaryFont);
+    font-size: 15pt;
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+.poster button:hover{
+    border: 1px solid var(--primaryColor);
+}
+.poster button:active{
+    background-color:  var(--primaryFade);
+    
+}
