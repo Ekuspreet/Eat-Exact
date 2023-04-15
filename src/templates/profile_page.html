@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    
+	<title>EatExact</title>
+	<link rel="stylesheet" href="{{ url_for('static',filename='style_register.css') }}" />
+	<link rel="stylesheet" href="{{ url_for('static',filename='set_defaults.css') }}" />
+</head>
+
+
+<body>
+
+<div class="navbar">
+    <div class="logo">
+        <a href="#"><img height = '150px' src = "{{ url_for('static',filename='assets/Logo_EE.png') }}"></a>
+        <header>Eat Exact</header>
+    </div>
+    
+    <div class="nav-btn">
+        <button><a href="{{ url_for('customer_dashboard',customer_id=session['customer_id']) }}">Back To Dashboard </a></button>
+        <!-- <button><a href="{{ url_for('register') }}">Sign Up </a></button> -->
+        <!-- <button><a href="#">About Us </a></button> -->
+
+    </div>
+</div>
+
+
+
+
+<div class="form-wrapper">
+    <heading>Profile Details</heading>
+    <img src="{{ url_for('static',filename='assets/4.jpg') }}">
+    <form action="#" method="post" id="manager_registeration">
+      
+        
+        <label for="name" >Customer Name :</label>	
+        <input type="text" id="customer_name" name="name" value="{{ customer.name }}">
+       
+        <label for="name" >Room Number :</label>	
+        <input type="text" id="room_number" name="room_number" value="{{ customer.room_number }}">
+       
+        <label for="solana_key">Solana Key :</label>	
+        <input type="text" id="input_solana_key" name="solly_key" value="{{ customer.solly_key }}" placeholder="optional">
+       
+        <input type="submit" value="Submit">
+    </form>
+</div>
+</body>
+
+</html>

@@ -4,12 +4,80 @@
 
 <head>
 	<title>EatExact</title>
-	<link rel="stylesheet" href="{{ url_for('static',filename='style_customer_dashboard.css') }}" />
+	<link rel="stylesheet" href="{{ url_for('static',filename='style_register.css') }}" />
 	<link rel="stylesheet" href="{{ url_for('static',filename='set_defaults.css') }}" />
+	<link rel="stylesheet" href="{{ url_for('static',filename='style_customer_dashboard.css') }}" />
+
 </head>
 
 <body>
-    
+    <div class="navbar">
+		<div class="logo">
+			<a href="#"><img height = '150px' src = "{{ url_for('static',filename='assets/Logo_EE.png') }}"></a>
+			<header>Eat Exact</header>
+		</div>
+		
+		<div class="nav-btn">
+			<button><a href="{{ url_for('customer_profile',customer_id=session['customer_id']) }}">Profile</a></button>
+			<button><a href="{{ url_for('login') }}">Log Out</a></button>
+			<!-- <button><a href="#">About Us </a></button> -->
+	
+		</div>
+	</div>
+	<section class = "container">
+		<div class = "left-panel">
+		<div id = "greeting">
+			<p>Hello,<br><info>{{ customer_name }}</info>,<br>You are currently staying in, <br><info>{{ institution_name }}</info>,<br>in the room number <br><info>{{ room_number }}</info>. <br> We hope for a pleasant stay.</p>
+
+		</div>
+		<div id = "other-options">
+			<heading>Other Options</heading>
+			Swiggy
+			zomato 
+		</div>
+
+
+
+</div>
+<div class="right-panel">
+	<div class="account-information">
+
+		<p>Availible Balance: </p>
+		<p id = "aval">0/{{ balance_limit }}</p>
+		<p>{Currency Variable}
+
+
+
+	</div>
+
+	<div id="food-tables">
+		<table>
+			<tr>
+				<th>Item Name</th>
+				<th>Price</th>
+				<th>Quantity</th>
+				<th>Total</th>
+			</tr>
+			<form>
+				{% for item in items %}
+				<tr>
+					<td> {{ item.name }} </td>
+					<td> {{ item.price }} </td>
+					<td> <input type="number" min="0" max="{{ item.limit }}" value="{{ item.quantity }}"> / {{ item.limit }} </td>
+					<td> {{ item.total }} </td>
+				</tr>
+				{% endfor %}
+		</table>
+	</div>
+
+	<div class="submit-buttons">
+		<input type="submit" value="Calculate Balance"></input>
+		<input type="submit" value="Cook This For Me"></input>
+	</div>
+</div>
+	</form>
+	</section>
+
 </body>
 
 </html>

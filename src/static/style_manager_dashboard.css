@@ -1,0 +1,76 @@
+
+.navbar .nav-btn button{
+    width: 8em;
+}
+input[type = 'submit']{
+    cursor:pointer;
+}
+heading{
+    color: var(--primaryColor);
+    font-family: var(--primaryFont);
+    font-weight: 700;
+}
+.container{
+    display: flex;
+    flex-direction: row;
+    margin: 2em;
+    
+
+}
+.approval-button form{
+
+    display: flex;
+    flex-direction: column;
+    gap: 0.2em;
+}
+.approval-button form input{
+    height: 3em;
+    font-weight: 600;
+    border-radius: 10px;
+    font-size: 12pt;
+}
+#generate{
+    background-color: var(--approve);
+}
+#delete{
+    background-color: var(--alert);
+}
+.Left-side-panel{
+    display: flex;
+    flex-direction: column;
+    gap: 1.2em;
+}
+
+.user-request{
+    padding: 0.5em;
+    width: 20em;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--white);
+    border-radius: 10px;
+    align-items: center;
+    justify-content: center;
+}
+requests{
+    padding: 1.5em 0em;
+
+}
+.user-accepted{
+    display: flex;
+    flex-direction: column;
+    background-color: var(--white);
+    border-radius: 10px;
+    align-items: center;
+    justify-content: center;
+}
+
+.user-request input[type = "submit"]{
+    margin-top: 1.2em;
+    background-color: var(--approve);
+    cursor: pointer;  
+    width: 100%;
+    height: 2em;
+    border-radius: 10px;
+    font-weight: 600;
+}
+

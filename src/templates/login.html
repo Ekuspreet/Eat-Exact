@@ -38,7 +38,7 @@
 	<section class="login-forms">
 
 		<form action="#" method="post" id="customer_login">
-			<img src="../static/assets/2.png" alt="">
+			<img id = "cus_login" src="../static/assets/2.png" alt="">
 			<formarea>
 			<heading>Login As A Customer</heading>
 			<input type="hidden" name="form_id" value="customer">
@@ -54,7 +54,7 @@
 		</form>
 
 		<form action="#" method="post" id="manager_login">
-			<img src="../static/assets/1.png" alt="">
+			<img id = "man_login" src="../static/assets/1.png" alt="">
 			<formarea>
 				<heading>Login As A Manager</heading>
 			<input type="hidden" name="form_id" value="manager">
@@ -85,6 +85,8 @@
 
 </div>
 	<!-- Eat WHat you (desire)-cut NEED -->
+
+	<script src="{{url_for('static', filename='login.js')}}"></script>
 </body>
 
 </html>

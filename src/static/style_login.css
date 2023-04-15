@@ -171,25 +171,49 @@ section{
     height: calc(auto + 10em);
     justify-content: center;
     padding: 1.5em;
-    gap: 0.5em;
+    gap: 0em;
     padding: 2em;
 }
 .login-forms #customer_login{
+    overflow: hidden;
+
     background-color: #efb6ab;
+    width:40%;
+    height: 45vw;
 }
 .login-forms #manager_login{
+    overflow: hidden;
     background-color: #8aa7d8;
+    width:40%;
+    height: 45vw;
 }
-formarea{
-    margin-top: -30vw;
-    margin-bottom: 10vw;
-    display: flex;
+#customer_login formarea{
+    
+    margin-top: 4em;
+    /* margin-bottom: 10vw; */
+    display: none;
     gap: 0.25em;
     flex-direction: column;
-    bottom:max(80vw, 70%);
+    /* bottom:max(80vw, 70%); */
     align-items: center;
     justify-content: center;
 }
+#manager_login formarea{
+    
+    margin-top: 4em;
+    /* margin-bottom: 10vw; */
+    display: none;
+    gap: 0.25em;
+    flex-direction: column;
+    /* bottom:max(80vw, 70%); */
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+
+
 .login-forms form input{
         
     width: 25vw;
@@ -205,12 +229,17 @@ formarea{
 .login-forms img{
     /* opacity: 0; */
     /* position: absolute; */
+    cursor:pointer;
     right: auto;
     left: auto; 
     height :40vw;
     width: 36vw;
-    min-height: 30em;
-    min-width: 27em;
+    min-height: 20em;
+    min-width: 20em;
+}
+
+.login-forms img:hover{
+    transform: scale(1.01);
 }
 .login-forms label{
     margin-top: 0.2em;
@@ -219,7 +248,7 @@ formarea{
     color: var(--white);
 }
 .login-forms heading{
-
+    text-align: center;
     font-family: var(--primaryFont);
     color: var(--white);
     font-weight: 600;

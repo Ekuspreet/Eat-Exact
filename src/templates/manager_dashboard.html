@@ -1,38 +1,86 @@
-
 <!DOCTYPE html>
 
 <html>
 
 <head>
-	<title>EatExact</title>
-	<link rel="stylesheet" href="{{ url_for('static',filename='style_manager_dashboard.css') }}" />
-	<link rel="stylesheet" href="{{ url_for('static',filename='set_defaults.css') }}" />
+    <title>EatExact</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='style_manager_dashboard.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static',filename='style_register.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static',filename='set_defaults.css') }}" />
 </head>
 
 <body>
-    Requested:
-    <form method="post" action="#">
-    {% for request in logins %}
-    {% if request.accepted == False %}
-    {{ request }}
-    <input type="radio" id="{{ request.customer_id }}" name="{{ request.customer_id }}" value="accept">
-    <label for="{{ request.customer_id }}"> accept </label>
-    <input type="radio" id="{{ request.customer_id }}" name="{{ request.customer_id }}" value="reject">
-    <label for="{{ request.customer_id }}"> reject </label>
-    <br>
-    {% endif %}
-    {% endfor %}
-    <input type="submit" value="Apply">
-    </form>
-    <br>
-    Allowed:
-    <br>
-    {% for request in logins %}
-    {% if request.accepted == True %}
-    {{ request }}
-    <br>
-    {% endif %}
-    {% endfor %}
+
+    <div class="navbar">
+        <div class="logo">
+            <a href="#"><img height='150px' src="{{ url_for('static',filename='assets/Logo_EE.png') }}"></a>
+            <header>Eat Exact</header>
+        </div>
+
+        <div class="nav-btn">
+            <button><a href="{{ url_for('login') }}">Logout </a></button>
+            <!-- <button><a href="{{ url_for('register') }}">Sign Up </a></button> -->
+            <!-- <button><a href="#">About Us </a></button> -->
+
+        </div>
+    </div>
+    <div class="container">
+        <div class="Left-side-panel">
+
+            <div class="approval-button">
+                <form action="#" method="post">
+                    <input id='generate' type="submit" value="Generate Request">
+                    <input id='delete' type="submit" value="Delete Form">
+                </form>
+            </div>
+            <div class="user-request">
+                <heading>
+                    Requested: </heading>
+                <requests>
+                    <form method="post" action="#">
+                        {% for request in logins %}
+                        {% if request.accepted == False %}
+                        {{ request }}
+                        <input type="radio" id="{{ request.customer_id }}" name="{{ request.customer_id }}"
+                            value="accept">
+                        <label for="{{ request.customer_id }}"> accept </label>
+                        <input type="radio" id="{{ request.customer_id }}" name="{{ request.customer_id }}"
+                            value="reject">
+                        <label for="{{ request.customer_id }}"> reject </label>
+                        <br>
+                        {% endif %}
+                        {% endfor %}
+                        <input type="submit" value="Apply">
+                    </form>
+                </requests>
+
+            </div>
+            <div class="user-accepted">
+                <heading>
+                    Customers </heading>
+
+                {% for request in logins %}
+                {% if request.accepted == True %}
+                {{ request }}
+                <br>
+                {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+        <div class="Right-side-panel">
+            <!-- Order summary -->
+            <heading>
+            Order Summary:</heading>
+            {% for key,val in freq.items() %}
+            {{ names[key] }} -- {{ val }} <br>
+            {% endfor %}
+            <!-- Order Details -->
+            {% for order in orders %}
+            {{ reqs[order.customer_id].name }} from {{ reqs[order.customer_id].room }}<br>
+            {{ reqs[order.customer_id].string }} <br>
+            {% endfor %}
+        </div>
+    </div>
 </body>
 
 </html>
