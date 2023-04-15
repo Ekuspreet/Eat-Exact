@@ -10,18 +10,24 @@
 html{
     background-color: white;
 }
+
 :root{
-    --primaryColor : #e69a8a;
+    --primaryColor : #f07053;
     --primaryFade : #fdccc3a1;
     --black : #242424;
     --white : #f1f1f1;
-    --downShadow : 0 10px 40px -10px rgba(58, 38, 70, 0.694);
+    --downShadow : 0 10px 40px -10px rgba(251, 251, 251, 0.111);
     --secondaryFont : 'Alef',sans-serif;
     --primaryFont : 'Prompt',sans-serif;
     --alert : #e8644c;
+    --approve : rgb(179, 241, 137);
 }
 button{
     border: none;
     outline: none;
     background-color: transparent;
+}
+input{
+    border: none;
+    outline:none;
 }

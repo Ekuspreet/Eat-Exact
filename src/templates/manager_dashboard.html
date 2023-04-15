@@ -10,8 +10,28 @@
 </head>
 
 <body>
-    {% for request in requested_logins %}
+    Requested:
+    <form method="post" action="#">
+    {% for request in logins %}
+    {% if request.accepted == False %}
     {{ request }}
+    <input type="radio" id="{{ request.customer_id }}" name="{{ request.customer_id }}" value="accept">
+    <label for="{{ request.customer_id }}"> accept </label>
+    <input type="radio" id="{{ request.customer_id }}" name="{{ request.customer_id }}" value="reject">
+    <label for="{{ request.customer_id }}"> reject </label>
+    <br>
+    {% endif %}
+    {% endfor %}
+    <input type="submit" value="Apply">
+    </form>
+    <br>
+    Allowed:
+    <br>
+    {% for request in logins %}
+    {% if request.accepted == True %}
+    {{ request }}
+    <br>
+    {% endif %}
     {% endfor %}
 </body>
 

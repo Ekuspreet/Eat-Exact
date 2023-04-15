@@ -17,6 +17,7 @@
 			<a href="#"><img height = '150px' src = "{{ url_for('static',filename='assets/Logo_EE.png') }}"></a>
 			<header>Eat Exact</header>
 		</div>
+		
 		<div class="nav-btn">
 			<button><a href="#">Login </a></button>
 			<button><a href="{{ url_for('register') }}">Sign Up </a></button>
@@ -29,7 +30,7 @@
 		<div class="text">
 		<tagline>Tailor Your Plate, <br>Don't Waste & Wait!</tagline>
 		<p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus nisi totam suscipit voluptatem magnam repellendus praesentium esse, odio dolor, officia quo distinctio et cumque molestiae vero? Iste rem atque cum?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus nisi totam suscipit voluptatem magnam repellendus praesentium esse, odio dolor, officia quo distinctio et cumque molestiae vero? Iste rem atque cum?</p>
-		<button>Join The Change</button>
+		<a href = "{{ url_for('register') }}"><button>Join The Change</button></a>
 	    </div>
 	</section>
 
@@ -37,24 +38,49 @@
 	<section class="login-forms">
 
 		<form action="#" method="post" id="customer_login">
+			<img src="../static/assets/2.png" alt="">
+			<formarea>
+			<heading>Login As A Customer</heading>
 			<input type="hidden" name="form_id" value="customer">
-			<label for="organisation_id">organisation ID :</label>	
+			<label for="customer_name">Customer Name :</label>	
+			<input type="text" id="input_customer_name" name="customer_name">
+			<label for="organisation_id">Organisation ID:</label>	
 			<input type="text" id="input_organisation_id" name="organisation_id">
 			<label for="room_number">Room Number :</label>	
 			<input type="text" id="input_room_number" name="room_number">
-			<label for="customer_name">Customer Name :</label>	
-			<input type="text" id="input_customer_name" name="customer_name">
-			<input type="submit" value="submit">
+			
+			<input type="submit" value="Submit">
+			</formarea>
 		</form>
 
 		<form action="#" method="post" id="manager_login">
+			<img src="../static/assets/1.png" alt="">
+			<formarea>
+				<heading>Login As A Manager</heading>
 			<input type="hidden" name="form_id" value="manager">
-			<label for="organisation_id">organisation ID :</label>	
+			<label for="organisation_id">Organisation ID :</label>	
 			<input type="text" id="input_organisation_id" name="organisation_id">
 			<label for="password">Password :</label>	
 			<input type="password" id="input_password" name="password">
-			<input type="submit" value="submit">
+			<input type="submit" value="Submit">
+			</formarea>	
 		</form>
+	</section>
+	<section class = "AboutUs">
+
+		<heading>About Us </heading>
+		<div class = "imgwrap">
+		<img src="../static/assets/stop food wastage.jpg" alt="">
+		</div>
+		<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos porro modi assumenda consequatur reprehenderit recusandae cum molestiae autem! Reiciendis est molestias commodi illo dolores quidem possimus exercitationem perspiciatis necessitatibus obcaecati?
+			Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cupiditate totam sunt eius odit molestiae quas ab, facilis eligendi, inventore quisquam dolorum optio, magni ea aliquam nulla unde voluptatibus numquam! Voluptas.
+			Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur minus praesentium consectetur, quia a magni molestiae voluptates quod dolorem tempora debitis corrupti doloribus aperiam assumenda velit voluptatum at voluptatibus suscipit.lorem
+			Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit quod ipsam modi dolores fuga nisi doloribus, omnis neque impedit, vitae ducimus ipsum est? Neque amet natus excepturi mollitia, aperiam nobis.
+		</p>
+	</section>
+
+	<section class = "footer">
+		<h1>HACK'O'WASP 5.0 <br> Team BuzzFix</h1>
 	</section>
 
 </div>

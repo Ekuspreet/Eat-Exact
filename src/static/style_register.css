@@ -1,0 +1,152 @@
+body{
+    width: auto;
+    height: auto;   
+    /* background-image: radial-gradient(rgb(41, 41, 42),rgb(53, 51, 54),rgb(43, 43, 43)); */
+    background: #262425;
+}
+.navbar{
+    z-index: 2;
+    margin: 0 2em;
+    /* background-color: orange; */
+    position: sticky;
+    top: 0px;
+    height: auto;
+    display: flex;
+    justify-content: space-between;
+    
+    top: 0.25vw;
+    
+    align-items: center;
+    backdrop-filter: blur(10px);
+    box-shadow: var(--downShadow);
+    /* background-color: #4f382da2; */
+    background: var(--primaryColor);
+    border-radius: 10px;
+    padding: 0% 1vw;
+}
+
+.logo{
+    height: inherit;
+    display: flex;
+    align-items:center;
+    /* margin: 0px 1em; */
+}
+.logo a{
+    text-decoration: none;
+    
+}
+.logo img{
+    height: 5vw;
+    min-height:5em;
+
+}
+.navbar header{
+    
+    /* color: var(--primaryColor); */
+    color: white;
+    font-size:40pt;
+    font-family : 'prompt', sans-serif;
+    font-weight: 600;
+
+}
+
+.nav-btn{
+    /* margin: 0px 1em; */
+    display: flex;
+    gap: 0.25vw;
+
+}
+.nav-btn button{
+    
+    width: 15em;
+    height: 4em;
+    border-radius: 5px;
+    /* border: 1px solid white; */
+    border: 1px solid var(--primaryColor);
+    transition: border 0.25s cubic-bezier(.66,.39,.21,.67);
+}
+
+.nav-btn button:hover{
+    border: 1px solid white;
+}
+.nav-btn button:active{
+    background-color:  var(--primaryFade);
+    
+}
+.nav-btn a{
+    text-decoration: none;
+    color: var(--white);
+    font-family: var(--secondaryFont);
+    font-size: max(1.25vw,12pt);
+    font-weight: bold;
+}
+
+.form-wrapper{
+    align-items: center;
+    justify-content: space-between;
+    display: flex;
+    flex-direction: column;
+    /* border: 1px solid var(--primaryColor); */
+    padding: 1.5em;
+}
+.form-wrapper img{
+    height: 24em;
+}
+.form-wrapper heading{
+
+    font-family: var(--primaryFont);
+    color: var(--white);
+    font-weight: 600;
+    font-size: max(3vw,2em);
+}
+
+
+
+
+
+#manager_registeration{
+    border: 1px solid var(--primaryColor);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    height: calc(auto + 10em);
+    width: max(50%,30em);
+    
+    align-items: center;
+    padding: 1.5em;
+    gap: 0.5em;
+    padding: 2em;
+}
+#manager_registeration #customer_login{
+    background-color: #efb6ab;
+}
+#manager_registeration #manager_login{
+    background-color: #8aa7d8;
+}
+
+#manager_registeration input{
+        
+    width: max(35vw , 15em);
+    height: 1.5em;
+    border-radius: 5px;
+    background-color: rgba(246, 246, 246, 0.896);
+    padding: 2px;
+    font-family: var(--secondaryFont);
+    font-size: 20pt;
+    font-weight: 500;
+}
+
+
+#manager_registeration label{
+    margin-top: 0.2em;
+    font-size: 1.5em;
+    font-family: var(--primaryFont);
+    color: var(--white);
+}
+
+
+#manager_registeration input[type = "submit"]{
+    background-color: var(--approve);
+    cursor: pointer;  
+    margin-top: 2.5em;  
+}

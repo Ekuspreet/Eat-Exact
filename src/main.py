@@ -62,6 +62,26 @@ class Item(db.Model):
         self.item_image = item_image
         self.item_price = item_price
 
+@app.route('/<organisation_id>/manager/dashboard/',methods=["GET","POST"])
+def manager_dashboard(organisation_id):
+    logins = Customer.query.filter_by(organisation_id=organisation_id)
+    requests = logins.filter_by(accepted=False)
+    if request.method == "POST":
+        for req in requests:
+            if not req.customer_id in request.form.keys():
+                continue
+            status = request.form[req.customer_id]
+            if status == "accept":
+                req.accepted = True
+            else:
+                db.session.delete(req)
+        db.session.commit()
+    return render_template('manager_dashboard.html',logins=logins)
+
+@app.route('/<organisation_id>/manager/menu/',methods=["GET","POST"])
+def manager_menu(organisation_id):
+    return render_template('manager_menu.html')
+
 @app.route('/register/',methods=["GET","POST"])
 def register():
     #register page
@@ -116,7 +136,7 @@ def login():
                 return render_template("login.html")
             session['organisation_id'] = organisation_id
             session['type'] = 'manager'
-            return redirect(url_for('manager_dashboard'))
+            return redirect(url_for('manager_dashboard',organisation_id=organisation_id))
         return render_template("login.html")
     return render_template('login.html')
 

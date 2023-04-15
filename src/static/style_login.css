@@ -1,6 +1,9 @@
 
 body{
-    background-image: linear-gradient(rgb(40, 36, 49),rgb(42, 38, 45));
+    width: auto;
+    height: auto;   
+    /* background-image: radial-gradient(rgb(41, 41, 42),rgb(53, 51, 54),rgb(43, 43, 43)); */
+    background: #262425;
 }
 .container{
     display: flex;
@@ -8,62 +11,74 @@ body{
    
 }
 
-
+section{
+    box-shadow: var(--downShadow);
+}
 /*Setting Up The NavBar Of Landing Page*/
 .navbar{
     z-index: 2;
+    margin: 0 2em;
     /* background-color: orange; */
-    /* position: sticky; */
-    height: 7.5em;
+    position: sticky;
+    top: 0px;
+    height: 6em;
     display: flex;
     justify-content: space-between;
     
+    top: 0.25vw;
+    
     align-items: center;
+    backdrop-filter: blur(10px);
     box-shadow: var(--downShadow);
-
-
+    /* background-color: #4f382da2; */
+    background: var(--primaryColor);
+    border-radius: 10px;
+    padding: 0% 1vw;
 }
 
 .logo{
-    height:inherit;
+    height: inherit;
     display: flex;
     align-items:center;
-    margin: 0px 1em;
+    /* margin: 0px 1em; */
 }
 .logo a{
     text-decoration: none;
+    
 }
 .logo img{
-    height: 7.5vw;
-    min-height:6em;
+    height: 5vw;
+    min-height:5em;
 
 }
-.logo header{
-    position: relative;
-    left: -.8em;
-    /* top: -0.2em; */
-    color: var(--primaryColor);
-    font-size:30pt;
+.navbar header{
+    
+    /* color: var(--primaryColor); */
+    color: white;
+    font-size:40pt;
     font-family : 'prompt', sans-serif;
     font-weight: 600;
+
 }
 
 .nav-btn{
-    margin: 0px 1em;
+    /* margin: 0px 1em; */
     display: flex;
     gap: 0.25vw;
 
 }
 .nav-btn button{
-    width: 7.5em;
-    height: 3em;
+    
+    width: 7vw;
+    height: 4em;
     border-radius: 5px;
-    border: 1px solid white;
+    /* border: 1px solid white; */
+    border: 1px solid var(--primaryColor);
     transition: border 0.25s cubic-bezier(.66,.39,.21,.67);
 }
 
 .nav-btn button:hover{
-    border: 1px solid var(--primaryColor);
+    border: 1px solid white;
 }
 .nav-btn button:active{
     background-color:  var(--primaryFade);
@@ -71,9 +86,9 @@ body{
 }
 .nav-btn a{
     text-decoration: none;
-    color: var(--black);
+    color: var(--white);
     font-family: var(--secondaryFont);
-    font-size: 14pt;
+    font-size: max(1.25vw,12pt);
     font-weight: bold;
 }
 
@@ -84,11 +99,11 @@ body{
 /* NavBar Completes Here :)
 */
 .poster{
-    
+    padding: 1.5em;
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: var(--downShadow);
+    
     
 
 }
@@ -112,6 +127,7 @@ body{
     margin: 1.5em;
     text-align: center;
     text-justify: distribute;
+    color: var(--white);
 }
 .poster tagline{
     font-family: var(--primaryFont);
@@ -120,18 +136,17 @@ body{
     font-weight: 800;
     line-height: -10px; 
     text-align: center;
-    color: var(--alert);
+    color: var(--primaryColor);
 }
 
 .poster button{
     width: 20em;
-    height: 2em;
+    height: 2.5em;
     border-radius: 5px;
-    border: 1px solid white;
     transition: border 0.25s cubic-bezier(.66,.39,.21,.67);
     text-decoration: none;
 
-    background-color: var(--alert);
+    background-color: var(--primaryColor);
     color: var(--white);
     font-family: var(--primaryFont);
     font-size: 15pt;
@@ -146,4 +161,117 @@ body{
 .poster button:active{
     background-color:  var(--primaryFade);
     
+}
+
+
+
+.login-forms{
+    display: flex;
+    flex-direction: row;
+    height: calc(auto + 10em);
+    justify-content: center;
+    padding: 1.5em;
+    gap: 0.5em;
+    padding: 2em;
+}
+.login-forms #customer_login{
+    background-color: #efb6ab;
+}
+.login-forms #manager_login{
+    background-color: #8aa7d8;
+}
+formarea{
+    margin-top: -30vw;
+    margin-bottom: 10vw;
+    display: flex;
+    gap: 0.25em;
+    flex-direction: column;
+    bottom:max(80vw, 70%);
+    align-items: center;
+    justify-content: center;
+}
+.login-forms form input{
+        
+    width: 25vw;
+    height: 2em;
+    border-radius: 5px;
+    background-color: rgba(246, 246, 246, 0.896);
+    padding: 2px;
+    font-family: var(--secondaryFont);
+    font-size: 12pt;
+    font-weight: 500;
+}
+
+.login-forms img{
+    /* opacity: 0; */
+    /* position: absolute; */
+    right: auto;
+    left: auto; 
+    height :40vw;
+    width: 36vw;
+    min-height: 30em;
+    min-width: 27em;
+}
+.login-forms label{
+    margin-top: 0.2em;
+    font-size: 1.5em;
+    font-family: var(--primaryFont);
+    color: var(--white);
+}
+.login-forms heading{
+
+    font-family: var(--primaryFont);
+    color: var(--white);
+    font-weight: 600;
+    font-size: max(3vw,2em);
+}
+
+#customer_login input[type = "submit"]{
+margin-top: 2.5em;
+}
+#manager_login input[type = "submit"]{
+margin-top: 7.9em;
+}
+.login-forms input[type = "submit"]{
+    background-color: var(--approve);
+    cursor: pointer;    
+}
+
+
+.AboutUs{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1.5em;
+
+}
+.AboutUs heading{
+    font-family: var(--primaryFont);
+    color: var(--white);
+    font-weight: 600;
+    font-size: max(3vw,2em);
+}
+.AboutUs img{
+height: max(40vw,30em);
+width: max(60vw, 40em);
+position: relative;
+}
+.AboutUs p{
+    width: 70%;
+    margin: 1.5em;
+    text-align: center;
+    text-justify: distribute;
+    color: var(--white);
+}
+.footer{
+    background-color: var(--black);
+
+}
+.footer h1{
+    font-size: 10vw;
+    font-family: var(--primaryFont);
+    color: var(--primaryColor);
+    text-align: center;
+    font-weight: 600;
+    font-size: max(3vw,2em);
 }
