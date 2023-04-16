@@ -19,24 +19,7 @@ heading{
     margin: 2em;
     gap: 1em;
 }
-.approval-button form{
 
-    display: flex;
-    flex-direction: column;
-    gap: 0.2em;
-}
-.approval-button form input{
-    height: 3em;
-    font-weight: 600;
-    border-radius: 10px;
-    font-size: 12pt;
-}
-#generate{
-    background-color: var(--approve);
-}
-#delete{
-    background-color: var(--alert);
-}
 .Left-side-panel{
     display: flex;
     flex-direction: column;
@@ -44,22 +27,28 @@ heading{
 }
 
 .user-request{
+    height: 15em;
+    overflow: auto;
     padding: 0.5em;
     width: 20em;
     display: flex;
     flex-direction: column;
-    background-color: var(--white);
+    /* background-color: var(--white); */
     border-radius: 10px;
-    align-items: center;
-    justify-content: center;
+    /* align-items: center; */
+    /* justify-content: center; */
 }
-requests{
-    margin-top: -5em;
+
+
+.user-request requests{
+    background-color: var(--white);
+    height: 4em;
 }
 .user-accepted{
+    overflow: auto;
     display: flex;
     flex-direction: column;
-    background-color: var(--white);
+    /* background-color: var(--white); */
     border-radius: 10px;
     align-items: center;
     justify-content: center;

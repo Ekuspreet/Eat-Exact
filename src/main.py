@@ -101,6 +101,18 @@ def customer_dashboard(customer_id):
         items.append({"name":name,"quantity":quantity,"price":price,"limit":limit,"total":total})
     cstmr = Customer.query.filter_by(customer_id=customer_id).first()
     org_name = Manager.query.filter_by(organisation_id=int(cstmr.organisation_id)).first().organisation_name
+    if request.method == "POST":
+        st = ''
+        menu = Item.query.filter_by(item_source=cstmr.organisation_id)
+        for food in menu:
+            if not food.item_id in request.form:
+                continue
+            qty = request.form[food.item_id]
+            st += food.item_id + ' ' + qty + ','
+        st = st[:len(st)-1]
+        order.order_string = st
+        print(st)
+        db.session.commit()
     return render_template('customer_dashboard.html',order=order,items=items,balance_limit=balance_limit,customer_name=cstmr.name,institution_name=org_name,room_number=cstmr.room_number)
 
 @app.route('/<organisation_id>/manager/dashboard/',methods=["GET","POST"])
@@ -145,11 +157,14 @@ def manager_dashboard(organisation_id):
         reqs[order.customer_id] = {}
         reqs[order.customer_id]['name'] = cstmr.name
         reqs[order.customer_id]['room'] = cstmr.room_number
+        print(cstmr.name)
         st = ""
+        if order.order_string == '':
+            reqs[order.customer_id]['string'] = st
+            continue
         for pair in order.order_string.split(','):
             itm = Item.query.filter_by(item_id=int(pair.split()[0])).first()
             st += itm.item_name + " x" + pair.split()[1] + ", "
-        reqs[order.customer_id]['string'] = st
     return render_template('manager_dashboard.html',logins=logins, freq=freq,names=names,orders=orders,reqs=reqs)
 
 @app.route('/<organisation_id>/manager/menu/',methods=["GET","POST"])
@@ -188,8 +203,10 @@ def login():
             customer_id = organisation_id + room_number
             cstmr = Customer.query.filter_by(customer_id=customer_id).first()
             if not cstmr:
-                cstmr = Customer(customer_id,organisation_id,room_number,name,False,"")
+                cstmr = Customer(customer_id,int(organisation_id),room_number,name,False,"")
+                ord = Order(customer_id,int(organisation_id),0,"")
                 db.session.add(cstmr)
+                db.session.add(ord)
                 db.session.commit()
                 return render_template("login.html")
             if cstmr.accepted == False:

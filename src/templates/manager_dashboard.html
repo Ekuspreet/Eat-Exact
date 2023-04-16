@@ -4,9 +4,10 @@
 
 <head>
     <title>EatExact</title>
-    <link rel="stylesheet" href="{{ url_for('static',filename='style_manager_dashboard.css') }}" />
     <link rel="stylesheet" href="{{ url_for('static',filename='style_register.css') }}" />
     <link rel="stylesheet" href="{{ url_for('static',filename='set_defaults.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static',filename='style_manager_dashboard.css') }}" />
+
 </head>
 
 <body>
@@ -27,15 +28,15 @@
     <div class="container">
         <div class="Left-side-panel">
 
-            <div class="approval-button">
+            <!-- <div class="approval-button">
                 <form action="#" method="post">
                     <input id='generate' type="submit" value="Generate Request">
                     <input id='delete' type="submit" value="Delete Form">
                 </form>
-            </div>
+            </div> -->
             <div class="user-request">
                 <heading>
-                    Requested: </heading>
+                    Requests </heading>
                 <requests>
                     <form method="post" action="#">
                         <table>

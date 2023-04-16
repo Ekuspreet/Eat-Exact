@@ -52,6 +52,7 @@
 
 	</div>
 
+	<form method="post" action="#">
 	<div id="food-tables">
 		<table>
 			<tr>
@@ -60,12 +61,11 @@
 				<th>Quantity</th>
 				<th>Total</th>
 			</tr>
-			<form>
 				{% for item in items %}
 				<tr>
 					<td> {{ item.name }} </td>
 					<td> {{ item.price }} </td>
-					<td> <input type="number" min="0" max="{{ item.limit }}" value="{{ item.quantity }}"> / {{ item.limit }} </td>
+					<td> <input type="number" name="{{ item.item_id }}" min="0" max="{{ item.limit }}" value="{{ item.quantity }}"> / {{ item.limit }} </td>
 					<td> {{ item.total }} </td>
 				</tr>
 				{% endfor %}
@@ -76,8 +76,8 @@
 		<!-- <input type="submit" value="Calculate Balance"></input> -->
 		<input type="submit" value="Cook This For Me"></input>
 	</div>
-</div>
 	</form>
+</div>
 	</section>
 
 </body>
