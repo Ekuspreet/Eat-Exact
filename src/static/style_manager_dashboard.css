@@ -5,6 +5,9 @@
 input[type = 'submit']{
     cursor:pointer;
 }
+html {
+    background: var(--black) !important;
+}
 heading{
     color: var(--primaryColor);
     font-family: var(--primaryFont);
@@ -14,8 +17,7 @@ heading{
     display: flex;
     flex-direction: row;
     margin: 2em;
-    
-
+    gap: 1em;
 }
 .approval-button form{
 
@@ -72,5 +74,34 @@ requests{
     height: 2em;
     border-radius: 10px;
     font-weight: 600;
+}
+.Right-side-panel {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+ table{
+    background-color: var(--white);
+    margin: 1vh 2vw;
+    width: 100%;
+    border-radius: 10px;
+    margin: auto;
+}
+table th{
+    
+    font-family: var(--primaryFont);
+    color: var(--primaryColor);
+}
+
+table td{
+    font-family: var(--secondaryFont);
+    text-align: center;
+}
+table td input{
+    height: 2em;
+    width: 7em;
+    text-align: center;
 }
 

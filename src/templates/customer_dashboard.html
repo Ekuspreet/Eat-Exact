@@ -30,11 +30,13 @@
 			<p>Hello,<br><info>{{ customer_name }}</info>,<br>You are currently staying in, <br><info>{{ institution_name }}</info>,<br>in the room number <br><info>{{ room_number }}</info>. <br> We hope for a pleasant stay.</p>
 
 		</div>
-		<div id = "other-options">
+		<div id = "other-options" style = " display : flex; flex-direction: column; align-items: center; justify-content: center;">
 			<heading>Other Options</heading>
-			Swiggy
-			zomato 
-		</div>
+			<ul>
+				<li><a href = "https://www.swiggy.com/" >Swiggy</a></li>
+				<li><a href = "https://www.zomato.com/india" >zomato</a></li> 
+				</ul>
+				</div>
 
 
 
@@ -43,8 +45,8 @@
 	<div class="account-information">
 
 		<p>Availible Balance: </p>
-		<p id = "aval">0/{{ balance_limit }}</p>
-		<p>{Currency Variable}
+		<p id = "aval">{{ balance_limit }}</p>
+		<p> Coins
 
 
 
@@ -71,7 +73,7 @@
 	</div>
 
 	<div class="submit-buttons">
-		<input type="submit" value="Calculate Balance"></input>
+		<!-- <input type="submit" value="Calculate Balance"></input> -->
 		<input type="submit" value="Cook This For Me"></input>
 	</div>
 </div>

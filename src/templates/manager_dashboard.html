@@ -38,18 +38,29 @@
                     Requested: </heading>
                 <requests>
                     <form method="post" action="#">
+                        <table>
+                            <tr>
+                                <th>Name </th>
+                                <th>Room Number</th>
+                                <th>Accept</th>
+                                <th>Reject </th>
+                            </tr>
                         {% for request in logins %}
                         {% if request.accepted == False %}
-                        {{ request }}
-                        <input type="radio" id="{{ request.customer_id }}" name="{{ request.customer_id }}"
+                        <tr>
+                        <td>{{ request.name }}</td>
+                        <td>{{ request.room_number }}</td>
+                        <td><input type="radio" id="{{ request.customer_id }}" name="{{ request.customer_id }}"
                             value="accept">
-                        <label for="{{ request.customer_id }}"> accept </label>
-                        <input type="radio" id="{{ request.customer_id }}" name="{{ request.customer_id }}"
+                        </td>
+                        <td><input type="radio" id="{{ request.customer_id }}" name="{{ request.customer_id }}"
                             value="reject">
-                        <label for="{{ request.customer_id }}"> reject </label>
+                        </td>
                         <br>
+                        </tr>
                         {% endif %}
                         {% endfor %}
+                        </table>
                         <input type="submit" value="Apply">
                     </form>
                 </requests>
@@ -59,26 +70,55 @@
                 <heading>
                     Customers </heading>
 
+                <table>
+                    <tr>
+                        <th>Name </th>
+                        <th>Room Number</th>
+                    </tr>
                 {% for request in logins %}
                 {% if request.accepted == True %}
-                {{ request }}
-                <br>
+                    <tr>
+                    <td>{{ request.name }}</td>
+                    <td>{{ request.room_number }}</td>
+                    </tr>
                 {% endif %}
                 {% endfor %}
+                </table>
             </div>
         </div>
         <div class="Right-side-panel">
             <!-- Order summary -->
-            <heading>
-            Order Summary:</heading>
+            <h1><heading>
+            Order Summary:</h1></heading>
+            <table>
+                <tr>
+                    <th>Item Name </th>
+                    <th>Item Quantity</th>
+                </tr>
             {% for key,val in freq.items() %}
-            {{ names[key] }} -- {{ val }} <br>
+                <tr>
+                    <td>{{ names[key] }} </td>
+                    <td>{{ val }}</td>
+                </tr>
             {% endfor %}
+            </table>
             <!-- Order Details -->
+            <h1><heading>
+            Order Details:</h1></heading>
+            <table>
+                <tr>
+                    <th>Customer Name </th>
+                    <th>Room Number</th>
+                    <th>Order</th>
+                </tr>
             {% for order in orders %}
-            {{ reqs[order.customer_id].name }} from {{ reqs[order.customer_id].room }}<br>
-            {{ reqs[order.customer_id].string }} <br>
+            <tr>
+            <td>{{ reqs[order.customer_id].name }} </td>
+            <td>{{ reqs[order.customer_id].room }}</td>
+            <td>{{ reqs[order.customer_id].string }}</td>
+            </tr>
             {% endfor %}
+            </table>
         </div>
     </div>
 </body>

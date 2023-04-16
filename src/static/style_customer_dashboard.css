@@ -8,6 +8,9 @@
     gap:2em;
     flex-direction: row;
 }
+html {
+    background: var(--black) !important;
+}
 .left-panel{
     width: 18%;
 display: flex;

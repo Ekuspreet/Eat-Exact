@@ -119,6 +119,8 @@ def manager_dashboard(organisation_id):
             if status == "accept":
                 req.accepted = True
             else:
+                ord = Order.query.filter_by(customer_id=req.customer_id).first()
+                db.session.delete(ord)
                 db.session.delete(req)
         db.session.commit()
     for order in orders:
