@@ -12,6 +12,7 @@ heading{
     color: var(--primaryColor);
     font-family: var(--primaryFont);
     font-weight: 700;
+    TEXT-ALIGN: CENTER;
 }
 .container{
     display: flex;
@@ -27,7 +28,7 @@ heading{
 }
 
 .user-request{
-    height: 15em;
+    height: fit-content;
     overflow: auto;
     padding: 0.5em;
     width: 20em;
@@ -41,8 +42,10 @@ heading{
 
 
 .user-request requests{
+    border-radius: 10px;
+
     background-color: var(--white);
-    height: 4em;
+    height: auto;
 }
 .user-accepted{
     overflow: auto;
