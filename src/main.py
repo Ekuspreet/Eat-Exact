@@ -188,7 +188,7 @@ def login():
             customer_id = organisation_id + room_number
             cstmr = Customer.query.filter_by(customer_id=customer_id).first()
             if not cstmr:
-                cstmr = Customer(customer_id,organisation_id,room_number,name,False)
+                cstmr = Customer(customer_id,organisation_id,room_number,name,False,"")
                 db.session.add(cstmr)
                 db.session.commit()
                 return render_template("login.html")

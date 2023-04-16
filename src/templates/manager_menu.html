@@ -3,13 +3,45 @@
 <html>
 
 <head>
+    
 	<title>EatExact</title>
 	<link rel="stylesheet" href="{{ url_for('static',filename='style_manager_menu.css') }}" />
 	<link rel="stylesheet" href="{{ url_for('static',filename='set_defaults.css') }}" />
 </head>
 
+
 <body>
+
+<div class="navbar">
+    <div class="logo">
+        <a href="#"><img height = '150px' src = "{{ url_for('static',filename='assets/Logo_EE.png') }}"></a>
+        <header>Eat Exact</header>
+    </div>
     
+    <div class="nav-btn">
+        <button><a href="{{ url_for('login') }}">Back To Login </a></button>
+        <!-- <button><a href="{{ url_for('register') }}">Sign Up </a></button> -->
+        <!-- <button><a href="#">About Us </a></button> -->
+
+    </div>
+</div>
+<div class="form-wrapper">
+    <heading>Manager Registration</heading>
+    <img src="../static/assets/3.png">
+    <form action="#" method="post" id="manager_registeration">
+        <label for="name">Organisation ID :</label>	
+        <input type="text" id="input_organisation_id" name="organisation_id">
+        <label for="name">Organisation Name :</label>	
+        <input type="text" id="input_organisation_name" name="organisation_name">
+        <label for="name">Organisation Order Limit :</label>	
+        <input type="text" id="input_organisation_order_limit" name="organisation_order_limit">
+        <label for="password">Password :</label>	
+        <input type="password" id="input_password" name="password">
+        <label for="confirm_password">Confirm Password :</label>	
+        <input type="password" id="input_confirm_password" name="confirm_password">
+        <input type="submit" value="Submit">
+    </form>
+</div>
 </body>
 
 </html>

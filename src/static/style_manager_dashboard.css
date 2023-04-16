@@ -54,8 +54,7 @@ heading{
     justify-content: center;
 }
 requests{
-    padding: 1.5em 0em;
-
+    margin-top: -5em;
 }
 .user-accepted{
     display: flex;
