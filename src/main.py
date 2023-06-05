@@ -3,7 +3,7 @@ from flask_sqlalchemy import SQLAlchemy
 
 #setup flask
 app = Flask(__name__)
-app.secret_key = "#stop_food-wastage-AT_ANY_COST!"
+app.secret_key = "#stop_food-wastage!"
 
 #link db
 app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///db.sqlite3"
